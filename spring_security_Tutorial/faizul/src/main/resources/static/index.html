@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FileSafe - Secure File Manager</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">FileSafe</h1>
+        
+        <!-- LOGIN SECTION -->
+        <div id="login-section">
+            <p class="subtitle">Welcome back, please login</p>
+            <input type="email" id="email" placeholder="Email" value="user@gmail.com">
+            <input type="password" id="password" placeholder="Password" value="user123">
+            <button id="login-btn">Sign In</button>
+            <p class="toggle-text">Don't have an account? <a href="#" id="show-register">Register here</a></p>
+            <p id="login-msg" class="error"></p>
+        </div>
+
+        <!-- REGISTER SECTION -->
+        <div id="register-section" style="display: none;">
+            <p class="subtitle">Create a new account</p>
+            <input type="text" id="reg-name" placeholder="Full Name">
+            <input type="email" id="reg-email" placeholder="Email">
+            <input type="password" id="reg-password" placeholder="Password">
+            <select id="reg-role">
+                <option value="ROLE_USER">User</option>
+                <option value="ROLE_ADMIN">Admin</option>
+            </select>
+            <button id="register-btn">Register</button>
+            <p class="toggle-text">Already have an account? <a href="#" id="show-login">Login here</a></p>
+            <p id="register-msg" class="success"></p>
+        </div>
+
+        <!-- DASHBOARD SECTION -->
+        <div id="dashboard-section" style="display: none;">
+            <div class="header">
+                <h2 id="welcome-user">Your Files</h2>
+                <button id="logout-btn" class="secondary">Logout</button>
+            </div>
+
+            <!-- UPLOAD FORM -->
+            <div class="upload-container">
+                <input type="file" id="file-input" style="display: none;">
+                <button id="select-file-btn" class="secondary">Select File</button>
+                <span id="selected-file-name">No file selected</span>
+                <button id="upload-btn">Upload</button>
+            </div>
+
+            <div class="controls">
+                <button id="refresh-btn" class="secondary">Refresh List</button>
+            </div>
+            
+            <ul id="file-list"></ul>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
