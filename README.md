@@ -1,87 +1,59 @@
-# 🚀 Emuy: Personal Cloud Drive & Sandboxing Project
+# 🚀 Emuy: Backend Engineering Roadmap
 
-Selamat datang di project **Emuy**, sebuah aplikasi Manajemen File (Personal Cloud Drive) yang dibangun menggunakan **Spring Boot 3** (Backend) dan **Vanilla HTML/JS/CSS** (Frontend). Project ini digunakan sebagai media pembelajaran (Sandboxing) untuk menguasai berbagai konsep Backend Engineering.
+Selamat datang di project **Emuy**, sebuah media pembelajaran (Sandboxing) untuk menguasai berbagai konsep **Backend Engineering** menggunakan **Spring Boot 3**. Project ini disusun berdasarkan fase pengembangan untuk memastikan pemahaman yang mendalam di setiap tahapnya.
 
 ---
 
 ## 🛠️ Sandboxing Roadmap
 
-Project ini dibagi menjadi beberapa fase pengembangan untuk memastikan fondasi yang kuat:
+Setiap folder `Phase-X` berisi project atau latihan yang relevan dengan tahap tersebut.
 
-### 🟢 Phase 1: Security & Identity (HARUS FIX)
-Fokus pada pengamanan aplikasi dan pemisahan data antar pengguna.
-- [x] **Auth + Session**: Implementasi Sesi berbasis `JSESSIONID` dan proteksi CSRF.
-- [x] **Role Security**: Pembedaan akses antara `ADMIN` dan `MEMBER`.
-- [ ] **User Isolation**: Menjamin user hanya bisa melihat dan mengelola file miliknya sendiri. (📌 *Sedang dikerjakan*)
+### 🟢 Phase 1: Security & Identity
+Fokus pada pengamanan aplikasi dan autentikasi.
+- **Goal**: Implementasi Session-based Auth (`JSESSIONID`), Role Security (`ADMIN`/`MEMBER`), dan proteksi CSRF.
+- **Project Folder**: `Phase-1-Security-Identity/spring_security_Tutorial/`
 
-### 🔵 Phase 2: Core Features
-Fungsionalitas utama aplikasi.
-- [x] **File Upload**: Mendukung upload file melalui multipart request.
-- [x] **File Download**: Sistem download file yang aman.
-- [x] **Media Streaming**: Support HTTP Range requests untuk streaming video/audio.
-- [ ] **File Preview**: Penampilan preview file di sisi frontend.
+### 🔵 Phase 2: Core Features (Current Stage)
+Implementasi fungsionalitas utama aplikasi manajemen file.
+- **Goal**: Multipart File Upload, Secure Download, dan HTTP Range Requests untuk Media Streaming.
+- **Project Folder**: `Phase-2-Core-Features/ConnectingToSql/`
 
 ### 🟡 Phase 3: Data Layer Optimization
 Membersihkan dan merapikan interaksi dengan database.
-- [ ] **JPA vs SQL Consistency**: Sinkronisasi antara Entity JPA dan query SQL native.
-- [ ] **Repository Refactoring**: Menggunakan best practice dalam pengambilan data.
+- **Goal**: Sinkronisasi JPA Entity dengan Native SQL, Repository Refactoring, dan Audit Logging.
 
 ### 🟠 Phase 4: API & Error Handling
-Standardisasi komunikasi antara Frontend dan Backend.
-- [ ] **API Standardization**: Format response yang konsisten (`success`, `message`, `data`).
-- [ ] **Global Error Handling**: Penanganan exception yang rapi menggunakan `@RestControllerAdvice`.
+Standardisasi komunikasi dan penanganan error.
+- **Goal**: `@RestControllerAdvice`, Global Exception Handling, dan Consistent Response Format.
 
-### 🟣 Phase 5: Polish & Refactor (Optional)
-Sentuhan akhir untuk performa dan estetika.
-- [ ] **Optimization**: Caching dan optimasi query.
-- [ ] **Code Refactor**: Pembersihan code smell.
-- [ ] **UI/UX Polish**: Mempercantik tampilan frontend.
+### 🟣 Phase 5: Optimization & Refactor
+Sentuhan akhir untuk performa dan kualitas kode.
+- **Goal**: Caching (Redis/Spring Cache), Query Optimization, dan Code Refactoring.
 
 ---
 
-## 🏗️ Tech Stack
+## 📂 Struktur Folder Latihan
 
-### Backend
-- **Framework**: Spring Boot 3.4.1
-- **Security**: Spring Security (Session-based)
-- **Database**: MySQL / MariaDB
-- **ORM**: Spring Data JPA
-- **Build Tool**: Maven
-
-### Frontend
-- **Structure**: Semantic HTML5
-- **Logic**: Vanilla JavaScript (Modern ES6+)
-- **Styling**: CSS3 (Modern techniques)
+- **`Phase-1-Security-Identity/`**
+  - `spring_security_Tutorial/`: Materi latihan dasar Spring Security.
+- **`Phase-2-Core-Features/`**
+  - `ConnectingToSql/`: Project utama Spring Boot yang sedang dikembangkan.
+- **`Phase-3-Data-Layer/`**: Tempat latihan optimasi database.
+- **`Phase-4-API-ErrorHandling/`**: Tempat latihan standarisasi API.
+- **`Phase-5-Optimization-Refactor/`**: Tempat latihan optimasi performa.
 
 ---
 
-## 📖 Dokumentasi Penting
+## 🚀 Cara Menjalankan Latihan
 
-- [Alur Spring Security (Login)](./emuy-backend/SPRING_SECURITY_FLOW.md) - Penjelasan mendalam tentang bagaimana session dan login bekerja di project ini.
-
----
-
-## 🚀 Cara Menjalankan Project
-
-### Backend
-1. Masuk ke folder `emuy-backend`.
+1. Masuk ke folder project di dalam fase (misal: `Phase-2-Core-Features/ConnectingToSql`).
 2. Pastikan database MySQL sudah menyala.
-3. Jalankan perintah:
+3. Jalankan aplikasi:
    ```bash
    ./mvnw spring-boot:run
    ```
 
-### Frontend
-1. Buka file `index.html` (atau file login utama) di folder `emuy-frontend` menggunakan Live Server atau langsung di browser.
-
----
-
-## 📂 Struktur Folder
-- `emuy-backend/`: Source code Spring Boot.
-- `emuy-frontend/`: Source code web frontend.
-- `mydrive/`: Folder lokal tempat penyimpanan file yang di-upload (diatur di backend).
-
 ---
 
 > [!TIP]
-> Project ini dibuat untuk tujuan belajar. Jangan ragu untuk bereksperimen dengan mengubah alur security atau menambahkan fitur baru di setiap fasenya!
+> Fokus pada satu fase hingga benar-benar paham sebelum lanjut ke fase berikutnya. Selamat belajar!
