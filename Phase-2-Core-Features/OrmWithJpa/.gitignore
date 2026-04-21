@@ -1,0 +1,13 @@
+# macOS
+.DS_Store
+
+# IDE
+.vscode/
+.idea/
+
+# build
+target/
+*.log
+
+# data folder
+Data/
