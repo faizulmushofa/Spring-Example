@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FileVault - Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-brand">
+            <span class="icon">🗂️</span>
+            <span>FileVault</span>
+        </div>
+        <div class="nav-user">
+            <div class="user-info">
+                <span id="nav-username" class="username">Memuat...</span>
+            </div>
+            <button class="btn-logout" onclick="handleLogout()">Keluar</button>
+        </div>
+    </nav>
+
+    <main class="dashboard-container">
+        <!-- HEADER -->
+        <header class="page-header">
+            <div>
+                <h1>Dashboard Anda</h1>
+                <p>Kelola dan amankan file Anda di sini</p>
+            </div>
+        </header>
+
+        <div class="dashboard-grid">
+            <!-- UPLOAD SECTION -->
+            <section class="card upload-card">
+                <h2>📤 Upload File</h2>
+                <form id="upload-form" onsubmit="handleUpload(event)">
+                    <div class="file-drop-area" id="drop-area">
+                        <span class="upload-icon">📁</span>
+                        <p>Klik atau Seret file ke sini</p>
+                        <input type="file" id="upload-input" onchange="updateFileName(this)" required>
+                    </div>
+                    <div id="file-name-display" class="file-name-display hidden"></div>
+                    <div id="upload-error" class="error-msg"></div>
+                    <div id="upload-success" class="success-msg"></div>
+                    <button type="submit" class="btn-primary" id="btn-upload">Upload File</button>
+                </form>
+            </section>
+
+            <!-- FILE LIST SECTION -->
+            <section class="card list-card">
+                <div class="card-header">
+                    <h2>📂 File Saya</h2>
+                    <button class="btn-refresh" onclick="loadUserFiles()">🔄 Refresh</button>
+                </div>
+
+                <div class="file-tabs">
+                    <button id="tab-active-files" class="active" onclick="switchFileTab('active')">Aktif</button>
+                    <button id="tab-trash-files" onclick="switchFileTab('trash')">Tempat Sampah</button>
+                </div>
+                
+                <div id="file-list-container" class="file-list">
+                    <div class="loading-state">Sedang memuat file...</div>
+                    <!-- Files will be injected here via JS -->
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script src="dashboard.js"></script>
+</body>
+</html>
