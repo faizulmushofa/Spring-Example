@@ -129,7 +129,9 @@ public class FileServiceImp implements FileService {
         }
 
         file.setRemoved(true);
-        fileRepository.save(file);
+        if (!storageServices.delete(file)){
+            return "File Tidak berhasil dipindahkan ke tempat sampah.";
+        }
         return "File berhasil dipindahkan ke tempat sampah.";
     }
 
@@ -142,7 +144,9 @@ public class FileServiceImp implements FileService {
         }
 
         file.setRemoved(false);
-        fileRepository.save(file);
+        if (!storageServices.restore(file)){
+            return "File berhasil direstore.";
+        }
         return "File berhasil direstore.";
     }
 }

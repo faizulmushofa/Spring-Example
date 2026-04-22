@@ -42,18 +42,19 @@ public class StorageServicesImp implements StorageService {
             Path source = Path.of(file.getPath())
                     .resolve(file.getHashName()).normalize();
 
-            Path trashUserDir = TrashLocation.resolve(file.getUser().toString());
+            Path trashUserDir = TrashLocation.resolve(file.getUser().getId().toString());
 
             Files.createDirectories(trashUserDir);
 
             Path target = trashUserDir.resolve(file.getHashName());
 
             Files.move(source,target);
+            System.out.println("Berhasil memindahkan ke trash!");
+            return true;
 
         } catch (RuntimeException | IOException e) {
             throw new RuntimeException(e);
         }
-        return false;
     }
 
     @Override
@@ -73,17 +74,19 @@ public class StorageServicesImp implements StorageService {
     @Override
     public boolean restore(StoredFile file) {
         try{
-            Path source = Path.of(file.getPath())
-                    .resolve(file.getHashName()).normalize();
+            Path trashUserDir = TrashLocation.resolve(file.getUser().getId().toString());
+            Path source = trashUserDir.resolve(file.getHashName());
 
-            Path userDir = fileStorageLocation.resolve(file.getUser().toString());
-
-            Path target = userDir.resolve(file.getHashName());
+            Path targetDir = Path.of(file.getPath());
+            Files.createDirectories(targetDir);
+            Path target = targetDir.resolve(file.getHashName());
 
             Files.move(source,target);
+            System.out.println("Berhasil merestore dari trash!");
             return true;
 
         } catch (RuntimeException | IOException e) {
+            e.printStackTrace();
             return false;
         }
     }
