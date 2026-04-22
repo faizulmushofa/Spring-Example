@@ -10,4 +10,4 @@ target/
 *.log
 
 # data folder
-Data/
+Data/**
