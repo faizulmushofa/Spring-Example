@@ -27,7 +27,7 @@ public class AuthServiceImp implements AuthService {
             throw new RuntimeException("User tidak ditemukan!");
         }
 
-        if (GeneratedPassword.matches(loginRequest.password(),user.getPassword())) {
+        if (!GeneratedPassword.matches(loginRequest.password(),user.getPassword())) {
             throw new RuntimeException("Password salah!");
         }
 

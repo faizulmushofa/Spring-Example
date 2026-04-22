@@ -1,9 +1,7 @@
 package org.example.ormwithjpa.Model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -11,9 +9,10 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
-@Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Setter
+@Getter
 public class User {
 
     @Id

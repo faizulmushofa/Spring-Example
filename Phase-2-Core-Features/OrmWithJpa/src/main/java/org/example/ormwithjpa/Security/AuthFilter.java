@@ -27,7 +27,7 @@ public class AuthFilter extends OncePerRequestFilter {
         String path = request.getRequestURI();
 
         // public endpoint bypass
-        if (path.startsWith("/Auth")) {
+        if (path.startsWith("/")) {
             filterChain.doFilter(request, response);
             return;
         }

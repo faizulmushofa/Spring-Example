@@ -63,6 +63,7 @@ public class FileController {
             @PathVariable Long fileId,
             @RequestParam Long userId
     ) {
+        System.out.println("Menghapus File...");
         return ResponseEntity.ok(fileService.softDeleteFile(fileId, userId));
     }
 
