@@ -10,6 +10,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -20,6 +21,7 @@ public class CustomUserDetailService implements UserDetailsService {
     private final UserRepository userRepository;
 
     @Override
+    @Transactional
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User user = userRepository.findByEmail(username)
                 .orElseThrow(() ->
@@ -36,6 +38,7 @@ public class CustomUserDetailService implements UserDetailsService {
 
     private List<GrantedAuthority> mapAuthorities(User user) {
         return user.getUserRoles().stream()
+                //menggunakan flatmap agar semua permission role di jadikan satu
                 .flatMap(userRole ->
                         userRole.getRole()
                                 .getRolePermissions()

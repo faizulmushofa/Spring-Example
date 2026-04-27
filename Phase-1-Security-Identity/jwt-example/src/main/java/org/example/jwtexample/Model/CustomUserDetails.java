@@ -1,13 +1,11 @@
 package org.example.jwtexample.Model;
 
 import lombok.AllArgsConstructor;
-import lombok.RequiredArgsConstructor;
-import org.jspecify.annotations.Nullable;
+
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
-import java.util.List;
 
 @AllArgsConstructor
 public class CustomUserDetails implements UserDetails {

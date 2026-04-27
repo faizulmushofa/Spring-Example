@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lecturer Workspace | Premium LMS</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <div class="container dashboard-container">
+        <div class="flex-between" style="margin-bottom: 2rem;">
+            <div>
+                <h1>Lecturer Workspace</h1>
+                <p class="subtitle">Welcome back, <span id="userEmail" style="color:var(--text-main);font-weight:600;"></span></p>
+            </div>
+            <button class="logout-btn btn-small" onclick="logout()">Sign Out</button>
+        </div>
+
+        <div class="grid-2">
+            <!-- Form Card -->
+            <div class="card" style="border-color: var(--primary);">
+                <h3 id="formTitle">Create New Course</h3>
+                <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1.5rem;">Design and publish a new course to the learning management system.</p>
+                <form id="courseForm">
+                    <input type="hidden" id="courseId">
+                    <div class="form-group">
+                        <label>Course Title</label>
+                        <input type="text" id="courseTitle" required placeholder="E.g., Advanced Software Engineering">
+                    </div>
+                    <div class="form-group">
+                        <label>Course Description</label>
+                        <textarea id="courseDesc" required rows="4" placeholder="What will students learn?"></textarea>
+                    </div>
+                    <div class="flex-gap">
+                        <button type="submit" id="submitBtn" class="btn-success">Publish Course</button>
+                        <button type="button" id="cancelBtn" class="btn-danger" style="display:none;" onclick="cancelEdit()">Cancel Edit</button>
+                    </div>
+                    <div id="msg" style="margin-top: 10px; font-size: 0.9rem; font-weight: 500;"></div>
+                </form>
+            </div>
+
+            <!-- List Card -->
+            <div>
+                <h3 style="margin-bottom: 1.5rem;">My Active Courses</h3>
+                <div id="coursesList">
+                    <div class="empty-state">Loading courses...</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Participants Section (Hidden by default) -->
+        <div class="card" id="enrolledUsersCard" style="display: none; margin-top: 2rem; border-color: var(--accent);">
+            <div class="flex-between" style="margin-bottom: 1.5rem;">
+                <h3 id="enrolledUsersTitle" style="margin: 0; color: var(--accent);">Enrolled Students</h3>
+                <button onclick="document.getElementById('enrolledUsersCard').style.display='none'" class="btn-danger btn-small">Close</button>
+            </div>
+            <div id="enrolledUsersList"></div>
+        </div>
+    </div>
+
+    <script src="js/dosen.js"></script>
+</body>
+</html>

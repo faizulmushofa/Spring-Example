@@ -7,6 +7,8 @@ import lombok.NoArgsConstructor;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 @Data
 @NoArgsConstructor
@@ -20,6 +22,7 @@ public class Permission {
 
     private String code;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "permission",
             orphanRemoval = true,
             cascade = CascadeType.ALL)

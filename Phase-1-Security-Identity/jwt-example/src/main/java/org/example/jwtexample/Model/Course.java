@@ -23,10 +23,13 @@ public class Course {
 
     private String description;
 
-    @OneToOne(optional = false)
+    private boolean isActive;
+
+    @ManyToOne(optional = false)
     @JoinColumn(name = "user_id")
     private User user;
 
+    @com.fasterxml.jackson.annotation.JsonIgnore
     @OneToMany(mappedBy = "course",cascade = CascadeType.ALL,orphanRemoval = true)
     private List<Enrolment> enrolments;
 }

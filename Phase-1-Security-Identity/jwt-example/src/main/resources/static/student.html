@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Workspace | Premium LMS</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <div class="container dashboard-container">
+        <div class="flex-between" style="margin-bottom: 2rem;">
+            <div>
+                <h1>Student Learning Hub</h1>
+                <p class="subtitle">Welcome back, <span id="userEmail" style="color:var(--text-main);font-weight:600;"></span></p>
+            </div>
+            <button class="logout-btn btn-small" onclick="logout()">Sign Out</button>
+        </div>
+
+        <div class="nav-tabs">
+            <button onclick="showSection('my-courses')" id="btn-my-courses" class="active">My Enrolled Courses</button>
+            <button onclick="showSection('explore')" id="btn-explore">Explore New Courses</button>
+        </div>
+
+        <!-- MY COURSES SECTION -->
+        <div id="section-my-courses">
+            <h2 style="margin-bottom: 1.5rem;">My Learning Path</h2>
+            <div class="grid-2" id="myCoursesList">
+                <div class="empty-state">Loading your courses...</div>
+            </div>
+        </div>
+
+        <!-- EXPLORE SECTION -->
+        <div id="section-explore" style="display: none;">
+            <h2 style="margin-bottom: 1.5rem;">Explore & Enroll</h2>
+            <div class="grid-2" id="availableCoursesList">
+                <div class="empty-state">Loading available courses...</div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="js/student.js"></script>
+</body>
+</html>
